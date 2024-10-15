@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 // We need a database of quotes
@@ -19,6 +20,8 @@ Route that sends back a random quote from the database
 - Your code block should create a variable randomQuote that is assigned a random string from the quotes array
 - Use the responseObj.send method to send an object back with a property of quote that has the value of your random quote string
 */
+
+app.use(cors());
 
 app.get('/api/quote', (_, responseObj) => {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
